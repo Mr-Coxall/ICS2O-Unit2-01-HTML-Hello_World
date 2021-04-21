@@ -1,5 +1,5 @@
 body {
-	background-color: powderblue;
+  background-color: powderblue;
   font-size: 10pt;
   font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
   color: black;
@@ -29,12 +29,14 @@ a {
   text-decoration: none;
 }
 
-a:link, a:visited {
+a:link, 
+a:visited {
   color: #8094d6;
 }
 
-a:hover, a:active {
-  color: #FF9933;
+a:hover, 
+a:active {
+  color: #f93;
 }
 
 div.footer {
