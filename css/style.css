@@ -29,12 +29,12 @@ a {
   text-decoration: none;
 }
 
-a:link, 
+a:link,
 a:visited {
   color: #8094d6;
 }
 
-a:hover, 
+a:hover,
 a:active {
   color: #f93;
 }
