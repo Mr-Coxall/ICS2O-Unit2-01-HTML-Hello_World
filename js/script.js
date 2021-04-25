@@ -1,5 +1,3 @@
-/* exported myButtonClicked */
-
 // Copyright (c) 2020 Mr. Coxall All rights reserved
 //
 // Created by: Mr. Coxall
