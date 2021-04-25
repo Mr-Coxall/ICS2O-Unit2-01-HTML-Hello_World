@@ -6,7 +6,7 @@
 // Created on: Sep 2020
 // This program displays "Hello, World!"
 
-const clickFunction = myButtonClicked
+// const clickFunction = myButtonClicked
 
 function myButtonClicked () {
   document.getElementById('hello-world').innerHTML = 'Hello, World!'
