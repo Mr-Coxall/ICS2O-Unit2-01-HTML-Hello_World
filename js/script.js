@@ -6,5 +6,6 @@
 
 function myButtonClicked () {
   // this function displays "Hello, World!"
+  
   document.getElementById('hello-world').innerHTML = 'Hello, World!'
 }
