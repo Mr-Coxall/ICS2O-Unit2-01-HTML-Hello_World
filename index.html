@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,14 +10,30 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>My first webpage, with a JS file</title>
   </head>
   <body>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="./js/script.js"></script>
-    <h1>Hello, World!, with JS</h1>
-    <div id="hello-world"></div>
-    <br>
-    <button onclick="myButtonClicked()">Click me</button>
+    <div class = "mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class = "mdl-layout__header">
+        <div class = "mdl-layout__header-row">      
+          <span class = "mdl-layout-title">Hello, World!, with JS</span>          
+        </div>       
+      </header>
+      <main class = "mdl-layout__content">
+        <br>
+        <!-- Raised button with ripple -->
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="myButtonClicked()">
+          Say "Hello, World!"
+        </button>
+        <!-- basic text -->
+        <br></br>
+        <div id="hello-world"></div>
+      </main>
+    </div>
   </body>
 </html>
