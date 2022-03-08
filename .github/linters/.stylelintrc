@@ -1,5 +1,5 @@
 {
   "rules": {
-    "kebab-case": false
+    "selector-class-pattern": false
   }
 }
