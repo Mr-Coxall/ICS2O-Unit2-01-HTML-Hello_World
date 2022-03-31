@@ -21,14 +21,14 @@ jobs:
           source_dir: ./js
           output_dir: ./out
           template: minami
-          front_page: README.md
+          front_page: JSDocs.md
 
       - name: Deploy JSDocs
         uses: peaceiris/actions-gh-pages@v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
-          publish_branch: main  # default: gh-pages
+          # publish_branch: main  # default: gh-pages
           destination_dir: docs
         
       - name: Run GitHub Super Linter
