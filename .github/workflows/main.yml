@@ -28,6 +28,8 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
+          publish_branch: main  # default: gh-pages
+          destination_dir: docs
         
       - name: Run GitHub Super Linter
         uses: github/super-linter@main
