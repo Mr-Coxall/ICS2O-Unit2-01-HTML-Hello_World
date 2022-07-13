@@ -1,40 +1,37 @@
-#########################################################
-# Run Mr Coxall's ICS2O GitHub Action against code base #
-#########################################################
+##################################################
+# Run Mr Coxall's Super Linter against code base #
+##################################################
 
 ---
-name: Mr Coxall's ICS2O GitHub Action
-on: push
+name: Mr Coxall's Super Linter
+
+on: [push, pull_request]
 
 jobs:
   run-linters:
-    name: Mr Coxall's ICS2O GitHub Action
+    name: Mr Coxall's Super Linter
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@master
+        uses: actions/checkout@main
 
-      - name: Build JSDocs
-        uses: andstor/jsdoc-action@v1
+      - name: Prettify code
+        uses: Mr-Coxall/prettier_action@main
         with:
-          source_dir: ./js
-          output_dir: ./out
-          template: minami
-          front_page: JSDocs.md
-
-      - name: Deploy JSDocs
-        uses: peaceiris/actions-gh-pages@v3
-        with:
+          # run Prettier and change code that needs fixing, before next section
+          prettier_options: --write **/*.{html,css,js,ts,jsx,tsx,json}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          # publish_branch: main  # default: gh-pages
-          destination_dir: docs
-        
+
       - name: Run GitHub Super Linter
         uses: github/super-linter@main
         env:
           VALIDATE_ALL_CODEBASE: true
+          LINTER_RULES_PATH: /
+          VALIDATE_CLANG_FORMAT: false
           VALIDATE_JAVASCRIPT_STANDARD: false
+          VALIDATE_PYTHON_FLAKE8: false
+          VALIDATE_GITLEAKS: false # for secrets detection
+          VALIDATE_JSCPD: false # for copy and paste detection
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
