@@ -1,20 +1,36 @@
-###############################################
-# Run GitHub's Super Linter against code base #
-###############################################
+#########################################################
+# Run Mr Coxall's ICS2O GitHub Action against code base #
+#########################################################
 
 ---
-name: GitHub's Super Linter
+name: Mr Coxall's ICS2O GitHub Action
 on: push
 
 jobs:
   run-linters:
-    name: GitHub's Super Linter
+    name: Mr Coxall's ICS2O GitHub Action
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out Git repository
         uses: actions/checkout@master
 
+      - name: Build JSDocs
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./js
+          output_dir: ./out
+          template: minami
+          front_page: JSDocs.md
+
+      - name: Deploy JSDocs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          # publish_branch: main  # default: gh-pages
+          destination_dir: docs
+        
       - name: Run GitHub Super Linter
         uses: github/super-linter@main
         env:
